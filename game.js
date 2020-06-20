@@ -6,6 +6,10 @@ class Mole {
     constructor(imgElement) {
         this.imgElement = imgElement;
         this.isHungry = false;
+        this.occupied = false;
+    }
+    cycle() {
+        console.log('Hi');
     }
 };
 
@@ -15,19 +19,26 @@ for (let i = 0; i < 10; i++) {
     moles[i] = new Mole(moleElements[i]);
 }
 
-moles.forEach((e) => {
-    console.log(e.isHungry);
-})
+moles.forEach((mole) => {
+    setTimeout(() => {mole.imgElement.src = 'images/mole-leaving.png';}, 300);
+    setTimeout(() => {mole.imgElement.classList.add('hidden');}, 600);
+    
+});
 
-function update() {
+// let nextCall = Date.now();
+// function update(aMole) {
+//     if (Date.now() > nextCall) {
+//         // if (Math.random > 0.7 && !aMole.occupied) {
+            
+//         // }
+//         aMole.cycle();
+//         nextCall = Date.now() + 1000;
+//     }
+//     requestAnimationFrame(update(aMole));
+// }
 
-}
+// requestAnimationFrame(update(moles[0]));
 
 function click() {
     
 }
-
-moles.forEach((mole) => {
-    setTimeout(() => {mole.imgElement.src = 'images/mole-leaving.png';}, 300);
-    setTimeout(() => {mole.imgElement.classList.add('hidden');}, 600);
-});
